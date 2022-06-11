@@ -4,8 +4,23 @@ function getuserinfo() {
     url: '/my/userinfo',
 
     success: function (res) {
+      if(res.status!==0)return layer.msg(res.message)
+      layer.msg(res.message)
       renderAvatar(res.data);
     },
+    // complete: function (res) {
+    //   console.log(res);
+    //   // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
+    //   if (
+    //     res.responseJSON.status === 1 &&
+    //     res.responseJSON.message === '身份认证失败！'
+    //   ) {
+    //     //  强制清空 token
+    //     localStorage.removeItem('token');
+    //     // 强制跳转到登录页面
+    //     location.href = '/login.html';
+    //   }
+    // },
   });
 }
 const renderAvatar = (user) => {
