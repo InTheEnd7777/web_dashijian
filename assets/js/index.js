@@ -4,8 +4,8 @@ function getuserinfo() {
     url: '/my/userinfo',
 
     success: function (res) {
-      if(res.status!==0)return layer.msg(res.message)
-      layer.msg(res.message)
+      if (res.status !== 0) return layer.msg(res.message);
+      layer.msg(res.message);
       renderAvatar(res.data);
     },
     // complete: function (res) {
@@ -24,7 +24,7 @@ function getuserinfo() {
   });
 }
 const renderAvatar = (user) => {
-  const name = user.username || user.nickname;
+  const name = user.nickname || user.username;
   //渲染欢迎语
   $('#welcome').html(`欢迎 ${name}`);
   //按需渲染头像
