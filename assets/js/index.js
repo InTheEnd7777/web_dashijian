@@ -49,4 +49,9 @@ $('#tuichubtn').click(function () {
     }
   );
 });
+
+function change() {
+  $('#change').addClass('layui-this').next().removeClass('layui-this');
+}
+
 getuserinfo();
